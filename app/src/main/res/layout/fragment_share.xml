@@ -27,17 +27,16 @@
         android:textAllCaps="true"
         android:textColor="?attr/colorPrimary"
         />
-    <com.auth0.sharelock.widget.TickedEditText
+    <com.auth0.sharelock.widget.ShareEditText
         android:id="@+id/share_input"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/secret_hint_text"
         android:layout_marginTop="@dimen/activity_vertical_margin"
         android:layout_marginLeft="@dimen/activity_horizontal_margin"
         android:layout_marginRight="@dimen/activity_horizontal_margin"
-        android:maxLines="@integer/secret_max_number_lines"
-        android:inputType="textEmailAddress"
-        android:imeOptions="actionDone"
+        android:maxLines="@integer/share_max_number_lines"
+        android:inputType="textMultiLine|textEmailAddress"
         />
     <TextView
         android:layout_width="wrap_content"
@@ -66,7 +65,7 @@
             android:textColor="@color/sharelock_navigation_button_text"
             android:textAllCaps="true"
             android:drawableRight="@drawable/ic_right_chevron"
-            android:visibility="gone"
+            android:visibility="invisible"
             />
     </RelativeLayout>
 

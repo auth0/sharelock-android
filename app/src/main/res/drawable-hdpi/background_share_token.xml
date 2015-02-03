@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/share_token_background" />
+    <size android:height="@dimen/share_token_height"/>
+    <corners
+        android:topLeftRadius="@dimen/share_token_corner_radius"
+        android:bottomLeftRadius="@dimen/share_token_corner_radius"
+        android:topRightRadius="@dimen/share_token_corner_radius"
+        android:bottomRightRadius="@dimen/share_token_corner_radius" />
+</shape>

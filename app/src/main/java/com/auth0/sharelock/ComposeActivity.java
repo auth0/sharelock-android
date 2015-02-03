@@ -8,7 +8,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.auth0.sharelock.event.AllowedViewersModifiedEvent;
 import com.auth0.sharelock.event.NewSecretEvent;
+import com.auth0.sharelock.fragment.LinkFragment;
 import com.auth0.sharelock.fragment.SecretInputFragment;
 import com.auth0.sharelock.fragment.ShareFragment;
 
@@ -84,6 +86,15 @@ public class ComposeActivity extends ActionBarActivity {
                 .setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right, android.R.anim.slide_in_left, android.R.anim.slide_out_right)
                 .replace(R.id.sharelock_compose_container, new ShareFragment())
                 .addToBackStack("Share Step")
+                .commit();
+    }
+
+    public void onEvent(AllowedViewersModifiedEvent event) {
+        secret.replaceAllowedViewers(event.getViewers());
+        getSupportFragmentManager().beginTransaction()
+                .setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right, android.R.anim.slide_in_left, android.R.anim.slide_out_right)
+                .replace(R.id.sharelock_compose_container, new LinkFragment())
+                .addToBackStack("Link Step")
                 .commit();
     }
 }

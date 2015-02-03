@@ -53,7 +53,7 @@ public class SecretInputFragment extends Fragment {
 
             @Override
             public void afterTextChanged(Editable s) {
-                nextButton.setVisibility(s.length() > 0 ? View.VISIBLE : View.GONE);
+                nextButton.setVisibility(s.length() > 0 ? View.VISIBLE : View.INVISIBLE);
             }
         });
         nextButton.setOnClickListener(new View.OnClickListener() {
