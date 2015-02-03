@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="sharelock_toolbar_weight">1</integer>
+    <integer name="sharelock_container_weight">1</integer>
+    <integer name="secret_max_number_lines">4</integer>
+</resources>

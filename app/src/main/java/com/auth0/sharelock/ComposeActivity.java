@@ -8,10 +8,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.auth0.sharelock.event.NewSecretEvent;
 import com.auth0.sharelock.fragment.SecretInputFragment;
+import com.auth0.sharelock.fragment.ShareFragment;
+
+import de.greenrobot.event.EventBus;
 
 
 public class ComposeActivity extends ActionBarActivity {
+
+    EventBus bus;
+    Secret secret;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,12 +34,27 @@ public class ComposeActivity extends ActionBarActivity {
         TextView title = (TextView) findViewById(R.id.sharelock_toolbar_title);
         Typeface proximaRegular = Typeface.createFromAsset(getAssets(), "fonts/ProximaNovaRegular.otf");
         title.setTypeface(proximaRegular);
+
+        bus = EventBus.getDefault();
+
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.sharelock_compose_container, new SecretInputFragment())
                     .commit();
-        }    }
+        }
+    }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        bus.register(this);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        bus.unregister(this);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -54,5 +76,14 @@ public class ComposeActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void onEvent(NewSecretEvent event) {
+        secret = event.getSecret();
+        getSupportFragmentManager().beginTransaction()
+                .setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right, android.R.anim.slide_in_left, android.R.anim.slide_out_right)
+                .replace(R.id.sharelock_compose_container, new ShareFragment())
+                .addToBackStack("Share Step")
+                .commit();
     }
 }

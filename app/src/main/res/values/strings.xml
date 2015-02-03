@@ -9,5 +9,8 @@
     <string name="secret_hint">data to share</string>
     <string name="secret_input_tooltip">Need more space or file sharing?</string>
     <string name="next_button">next</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="share_tooltip">Need auditing, enterprise credentials, or time limits?</string>
+    <string name="share_hint">who to share with</string>
 
 </resources>
