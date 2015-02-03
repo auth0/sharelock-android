@@ -1,12 +1,14 @@
 package com.auth0.sharelock;
 
 import android.graphics.Typeface;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+
+import com.auth0.sharelock.fragment.SecretInputFragment;
 
 
 public class ComposeActivity extends ActionBarActivity {
@@ -25,7 +27,11 @@ public class ComposeActivity extends ActionBarActivity {
         TextView title = (TextView) findViewById(R.id.sharelock_toolbar_title);
         Typeface proximaRegular = Typeface.createFromAsset(getAssets(), "fonts/ProximaNovaRegular.otf");
         title.setTypeface(proximaRegular);
-    }
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.sharelock_compose_container, new SecretInputFragment())
+                    .commit();
+        }    }
 
 
     @Override

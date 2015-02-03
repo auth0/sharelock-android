@@ -3,7 +3,9 @@
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:orientation="vertical"
-                tools:context=".ComposeActivity">
+                tools:context=".ComposeActivity"
+                android:background="@color/sharelock_background"
+    >
     <include layout="@layout/toolbar_sherlock"
              android:layout_weight="@integer/sharelock_toolbar_weight"
              android:layout_width="match_parent"

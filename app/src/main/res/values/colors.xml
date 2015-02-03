@@ -2,4 +2,7 @@
 <resources>
     <color name="sharelock_orange">#EB5424</color>
     <color name="sharelock_orange_dark">#A5441A</color>
+    <color name="sharelock_background">@android:color/white</color>
+    <color name="sharelock_navigation_bar_background">#FAFAFA</color>
+    <color name="sharelock_navigation_button_text">#9b9b9b</color>
 </resources>

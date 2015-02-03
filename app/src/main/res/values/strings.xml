@@ -2,10 +2,12 @@
 <resources>
 
     <string name="app_name">Sharelock</string>
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-
     <string name="sharelock_logo_text">{sharelock}</string>
     <string name="sharelock_subtitle_text">securely share data</string>
+    <string name="secret_input_message">Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor incididunt.</string>
+    <string name="secret_hint">data to share</string>
+    <string name="secret_input_tooltip">Need more space or file sharing?</string>
+    <string name="next_button">next</string>
 
 </resources>
