@@ -1,0 +1,19 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical"
+                tools:context=".ComposeActivity">
+    <include layout="@layout/toolbar_sherlock"
+             android:layout_weight="@integer/sharelock_toolbar_weight"
+             android:layout_width="match_parent"
+             android:layout_height="@dimen/sharelock_toolbar_height"
+        />
+    <FrameLayout
+        android:id="@+id/sharelock_compose_container"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/sharelock_container_height"
+        android:layout_weight="@integer/sharelock_container_weight"
+        >
+    </FrameLayout>
+</LinearLayout>

@@ -1,0 +1,10 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/sharelock_orange</item>
+        <item name="colorPrimaryDark">@color/sharelock_orange_dark</item>
+        <item name="windowActionBar">false</item>
+    </style>
+
+</resources>

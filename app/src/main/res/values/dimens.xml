@@ -1,0 +1,11 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="sharelock_logo_text_size">26sp</dimen>
+    <dimen name="sharelock_subtitle_text_size">26sp</dimen>
+    <dimen name="sharelock_toolbar_height">0dp</dimen>
+    <integer name="sharelock_toolbar_weight">1</integer>
+    <dimen name="sharelock_container_height">0dp</dimen>
+    <integer name="sharelock_container_weight">1</integer>
+</resources>
