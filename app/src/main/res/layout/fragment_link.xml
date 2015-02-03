@@ -1,13 +1,79 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
              xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
+             android:layout_width="fill_parent"
+             android:layout_height="fill_parent"
              tools:context="com.auth0.sharelock.fragment.LinkFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment"/>
+        android:id="@+id/link_secret_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/link_hint_top_margin"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:text="@string/secret_hint"
+        android:textAllCaps="true"
+        android:textColor="?attr/colorPrimary"
+        />
+    <TextView
+        android:id="@+id/link_secret_text"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/link_secret_hint"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:maxLines="2"
+        />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/link_share_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/link_secret_text"
+        android:layout_marginTop="@dimen/link_hint_top_margin"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:text="@string/share_hint"
+        android:textAllCaps="true"
+        android:textColor="?attr/colorPrimary"
+        />
+    <com.auth0.sharelock.widget.ShareEditText
+        android:id="@+id/link_share_list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/link_share_hint"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:maxLines="1"
+        android:background="@android:color/transparent"
+        android:inputType="none"
+        />
+
+    <TextView
+        android:id="@+id/link_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/link_share_list"
+        android:layout_marginTop="@dimen/link_hint_top_margin"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:text="@string/link_hint"
+        android:textAllCaps="true"
+        android:textColor="?attr/colorPrimary"
+        />
+    <TextView
+        android:id="@+id/link_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/link_hint"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:text="https://sharelock.io"
+        />
+
+</RelativeLayout>

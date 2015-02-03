@@ -82,18 +82,23 @@ public class ComposeActivity extends ActionBarActivity {
 
     public void onEvent(NewSecretEvent event) {
         secret = event.getSecret();
+        final ShareFragment fragment = new ShareFragment();
         getSupportFragmentManager().beginTransaction()
                 .setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right, android.R.anim.slide_in_left, android.R.anim.slide_out_right)
-                .replace(R.id.sharelock_compose_container, new ShareFragment())
+                .replace(R.id.sharelock_compose_container, fragment)
                 .addToBackStack("Share Step")
                 .commit();
     }
 
     public void onEvent(AllowedViewersModifiedEvent event) {
         secret.replaceAllowedViewers(event.getViewers());
+        final LinkFragment fragment = new LinkFragment();
+        Bundle arguments = new Bundle();
+        arguments.putParcelable(LinkFragment.LINK_FRAGMENT_SECRET_ARGUMENT, secret);
+        fragment.setArguments(arguments);
         getSupportFragmentManager().beginTransaction()
                 .setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right, android.R.anim.slide_in_left, android.R.anim.slide_out_right)
-                .replace(R.id.sharelock_compose_container, new LinkFragment())
+                .replace(R.id.sharelock_compose_container, fragment)
                 .addToBackStack("Link Step")
                 .commit();
     }

@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.auth0.sharelock.R;
+import com.auth0.sharelock.Secret;
 import com.auth0.sharelock.event.AllowedViewersModifiedEvent;
 import com.auth0.sharelock.widget.ShareEditText;
 import com.tokenautocomplete.TokenCompleteTextView;

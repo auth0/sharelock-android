@@ -7,6 +7,7 @@
     <dimen name="sharelock_toolbar_height">0dp</dimen>
     <dimen name="sharelock_container_height">0dp</dimen>
     <dimen name="secret_hint_top_margin">43dp</dimen>
+    <dimen name="link_hint_top_margin">32dp</dimen>
     <dimen name="secret_input_tooltip_top_margin">6dp</dimen>
     <dimen name="share_token_padding">5dp</dimen>
     <dimen name="share_token_vertical_margin">1dp</dimen>
