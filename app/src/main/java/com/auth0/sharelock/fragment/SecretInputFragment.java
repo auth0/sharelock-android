@@ -16,6 +16,7 @@ import com.auth0.sharelock.R;
 import com.auth0.sharelock.Secret;
 import com.auth0.sharelock.event.ClipboardSecretEvent;
 import com.auth0.sharelock.event.NewSecretEvent;
+import com.nispok.snackbar.SnackbarManager;
 
 import de.greenrobot.event.EventBus;
 
@@ -67,6 +68,7 @@ public class SecretInputFragment extends Fragment {
             @Override
             public void afterTextChanged(Editable s) {
                 nextButton.setVisibility(s.length() > 0 ? View.VISIBLE : View.INVISIBLE);
+                SnackbarManager.dismiss();
             }
         });
         nextButton.setOnClickListener(new View.OnClickListener() {
