@@ -7,12 +7,15 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.auth0.sharelock.R;
 import com.auth0.sharelock.Secret;
 import com.auth0.sharelock.event.NewLinkEvent;
+import com.auth0.sharelock.event.RequestLinkEvent;
+import com.auth0.sharelock.event.SharelockAPIErrorEvent;
 import com.auth0.sharelock.widget.ShareEditText;
 
 import de.greenrobot.event.EventBus;
@@ -26,6 +29,7 @@ public class LinkFragment extends Fragment {
 
     TextView linkText;
     ProgressBar progressBar;
+    Button retryButton;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -67,11 +71,26 @@ public class LinkFragment extends Fragment {
         }
         linkText = (TextView) view.findViewById(R.id.link_text);
         progressBar = (ProgressBar) view.findViewById(R.id.link_progress);
+        retryButton = (Button) view.findViewById(R.id.link_retry_button);
+        retryButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bus.post(new RequestLinkEvent(secret));
+                retryButton.setVisibility(View.GONE);
+                progressBar.setVisibility(View.VISIBLE);
+            }
+        });
     }
 
     public void onEvent(NewLinkEvent event) {
         bus.removeStickyEvent(event);
         progressBar.setVisibility(View.GONE);
         linkText.setText(event.getLink().toString());
+    }
+
+    public void onEventMainThread(SharelockAPIErrorEvent event) {
+        linkText.setText(R.string.link_generation_failed_message);
+        progressBar.setVisibility(View.GONE);
+        retryButton.setVisibility(View.VISIBLE);
     }
 }

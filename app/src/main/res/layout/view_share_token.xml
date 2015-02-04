@@ -10,8 +10,9 @@
               android:layout_marginBottom="@dimen/share_token_vertical_margin"
               android:gravity="center"
               android:background="@drawable/background_share_token"
-              android:paddingLeft="@dimen/share_token_padding"
-              android:paddingRight="@dimen/share_token_padding"
-              android:paddingTop="@dimen/share_token_padding"
-              android:paddingBottom="@dimen/share_token_padding"/>
+              android:paddingLeft="@dimen/navigation_button_horizontal_padding"
+              android:paddingRight="@dimen/share_token_horizontal_padding"
+              android:paddingTop="@dimen/share_token_vertical_padding"
+              android:paddingBottom="@dimen/share_token_vertical_padding"
+        />
 </LinearLayout>

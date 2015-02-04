@@ -66,6 +66,9 @@
             android:textAllCaps="true"
             android:drawableRight="@drawable/ic_right_chevron"
             android:visibility="invisible"
+            android:textSize="@dimen/navigation_button_text_size"
+            android:paddingRight="@dimen/navigation_button_horizontal_padding"
+            android:paddingLeft="@dimen/navigation_button_horizontal_padding"
             />
     </RelativeLayout>
 

@@ -63,7 +63,9 @@
         android:textAllCaps="true"
         android:textColor="?attr/colorPrimary"
         />
+
     <LinearLayout
+        android:id="@+id/link_group"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/link_hint"
@@ -90,5 +92,13 @@
             android:maxLines="1"
             />
     </LinearLayout>
-
+    <Button
+        android:id="@+id/link_retry_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/retry_button"
+        android:layout_below="@+id/link_hint"
+        android:layout_alignRight="@+id/link_group"
+        android:visibility="gone"
+        />
 </RelativeLayout>

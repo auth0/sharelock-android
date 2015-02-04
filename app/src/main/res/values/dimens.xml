@@ -9,9 +9,12 @@
     <dimen name="secret_hint_top_margin">43dp</dimen>
     <dimen name="link_hint_top_margin">32dp</dimen>
     <dimen name="secret_input_tooltip_top_margin">6dp</dimen>
-    <dimen name="share_token_padding">5dp</dimen>
+    <dimen name="share_token_vertical_padding">5dp</dimen>
     <dimen name="share_token_vertical_margin">1dp</dimen>
     <dimen name="share_token_height">30dp</dimen>
     <dimen name="share_token_corner_radius">15dp</dimen>
     <dimen name="link_progress_right_margin">10dp</dimen>
+    <dimen name="navigation_button_text_size">14sp</dimen>
+    <dimen name="navigation_button_horizontal_padding">15dp</dimen>
+    <dimen name="share_token_horizontal_padding">10dp</dimen>
 </resources>

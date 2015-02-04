@@ -1,7 +1,9 @@
 package com.auth0.sharelock;
 
+import android.app.AlertDialog;
 import android.content.ClipData;
 import android.content.ClipboardManager;
+import android.content.DialogInterface;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
@@ -17,6 +19,7 @@ import com.auth0.sharelock.event.ClipboardSecretEvent;
 import com.auth0.sharelock.event.NewLinkEvent;
 import com.auth0.sharelock.event.NewSecretEvent;
 import com.auth0.sharelock.event.RequestLinkEvent;
+import com.auth0.sharelock.event.SharelockAPIErrorEvent;
 import com.auth0.sharelock.fragment.LinkFragment;
 import com.auth0.sharelock.fragment.SecretInputFragment;
 import com.auth0.sharelock.fragment.ShareFragment;
@@ -146,7 +149,9 @@ public class ComposeActivity extends ActionBarActivity {
     }
 
     public void onEvent(RequestLinkEvent event) {
-        client.generateLinkForSecret(event.getSecret(), this, new LinkAPIClient.LinkCallback() {
+        final Secret secret = event.getSecret();
+        final EventBus bus = this.bus;
+        client.generateLinkForSecret(secret, this, new LinkAPIClient.LinkCallback() {
             @Override
             public void onSuccess(Uri link) {
                 Log.d(TAG, "Obtained link path " + link);
@@ -156,6 +161,20 @@ public class ComposeActivity extends ActionBarActivity {
             @Override
             public void onError(Throwable reason) {
                 Log.e(TAG, "Failed to generate link", reason);
+                bus.post(new SharelockAPIErrorEvent());
+                AlertDialog dialog = new AlertDialog.Builder(ComposeActivity.this)
+                        .setTitle(R.string.link_generation_failed_title)
+                        .setMessage(R.string.link_generation_failed_message)
+                        .setCancelable(true)
+                        .setPositiveButton(R.string.retry_button, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                bus.post(new RequestLinkEvent(secret));
+                            }
+                        })
+                        .setNegativeButton(R.string.cancel_button, null)
+                        .create();
+                dialog.show();
             }
         });
     }
