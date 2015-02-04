@@ -38,4 +38,6 @@ dependencies {
     compile 'com.auth0.android:core:1.1.0'
 
     compile 'com.nispok:snackbar:2.7.5'
+
+    compile 'com.melnykov:floatingactionbutton:1.1.0'
 }
