@@ -13,4 +13,5 @@
     <dimen name="share_token_vertical_margin">1dp</dimen>
     <dimen name="share_token_height">30dp</dimen>
     <dimen name="share_token_corner_radius">15dp</dimen>
+    <dimen name="link_progress_right_margin">10dp</dimen>
 </resources>

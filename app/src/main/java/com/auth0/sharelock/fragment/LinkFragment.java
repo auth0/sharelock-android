@@ -7,17 +7,25 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.auth0.sharelock.R;
 import com.auth0.sharelock.Secret;
+import com.auth0.sharelock.event.NewLinkEvent;
 import com.auth0.sharelock.widget.ShareEditText;
+
+import de.greenrobot.event.EventBus;
 
 public class LinkFragment extends Fragment {
 
     public static final String LINK_FRAGMENT_SECRET_ARGUMENT = "LINK_FRAGMENT_SECRET_ARGUMENT";
 
     Secret secret;
+    EventBus bus;
+
+    TextView linkText;
+    ProgressBar progressBar;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -26,6 +34,19 @@ public class LinkFragment extends Fragment {
         if (arguments != null) {
             secret = arguments.getParcelable(LINK_FRAGMENT_SECRET_ARGUMENT);
         }
+        bus = EventBus.getDefault();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        bus.register(this);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        bus.unregister(this);
     }
 
     @Override
@@ -44,5 +65,13 @@ public class LinkFragment extends Fragment {
         for (String viewer: secret.getAllowedViewers()) {
             shareEditText.addObject(viewer);
         }
+        linkText = (TextView) view.findViewById(R.id.link_text);
+        progressBar = (ProgressBar) view.findViewById(R.id.link_progress);
+    }
+
+    public void onEvent(NewLinkEvent event) {
+        bus.removeStickyEvent(event);
+        progressBar.setVisibility(View.GONE);
+        linkText.setText(event.getLink().toString());
     }
 }

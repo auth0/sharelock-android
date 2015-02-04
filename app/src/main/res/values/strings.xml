@@ -13,5 +13,6 @@
     <string name="share_tooltip">Need auditing, enterprise credentials, or time limits?</string>
     <string name="share_hint">who to share with</string>
     <string name="link_hint">sherlocked data</string>
+    <string name="link_in_progress">Encrypting your data...</string>
 
 </resources>

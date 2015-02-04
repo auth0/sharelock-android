@@ -1,15 +1,19 @@
 package com.auth0.sharelock;
 
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.auth0.sharelock.event.AllowedViewersModifiedEvent;
+import com.auth0.sharelock.event.NewLinkEvent;
 import com.auth0.sharelock.event.NewSecretEvent;
+import com.auth0.sharelock.event.RequestLinkEvent;
 import com.auth0.sharelock.fragment.LinkFragment;
 import com.auth0.sharelock.fragment.SecretInputFragment;
 import com.auth0.sharelock.fragment.ShareFragment;
@@ -19,8 +23,10 @@ import de.greenrobot.event.EventBus;
 
 public class ComposeActivity extends ActionBarActivity {
 
+    public static final String TAG = ComposeActivity.class.getName();
     EventBus bus;
     Secret secret;
+    LinkAPIClient client;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +44,7 @@ public class ComposeActivity extends ActionBarActivity {
         title.setTypeface(proximaRegular);
 
         bus = EventBus.getDefault();
+        client = new LinkAPIClient();
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
@@ -101,5 +108,21 @@ public class ComposeActivity extends ActionBarActivity {
                 .replace(R.id.sharelock_compose_container, fragment)
                 .addToBackStack("Link Step")
                 .commit();
+        bus.post(new RequestLinkEvent(secret));
+    }
+
+    public void onEvent(RequestLinkEvent event) {
+        client.generateLinkForSecret(event.getSecret(), this, new LinkAPIClient.LinkCallback() {
+            @Override
+            public void onSuccess(Uri link) {
+                Log.d(TAG, "Obtained link path " + link);
+                bus.postSticky(new NewLinkEvent(link));
+            }
+
+            @Override
+            public void onError(Throwable reason) {
+                Log.e(TAG, "Failed to generate link", reason);
+            }
+        });
     }
 }
