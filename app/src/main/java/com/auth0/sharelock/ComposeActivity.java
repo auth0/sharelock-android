@@ -178,4 +178,12 @@ public class ComposeActivity extends ActionBarActivity {
             }
         });
     }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (getSupportFragmentManager().getBackStackEntryCount() == 0) {
+            secret = null;
+        }
+    }
 }
