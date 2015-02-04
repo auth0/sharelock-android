@@ -23,6 +23,8 @@ import com.auth0.sharelock.event.RequestLinkEvent;
 import com.auth0.sharelock.event.RequestNewSecretEvent;
 import com.auth0.sharelock.event.SharelockAPIErrorEvent;
 import com.auth0.sharelock.widget.ShareEditText;
+import com.nispok.snackbar.Snackbar;
+import com.nispok.snackbar.SnackbarManager;
 
 import de.greenrobot.event.EventBus;
 
@@ -129,6 +131,10 @@ public class LinkFragment extends Fragment {
         buttons.setVisibility(View.VISIBLE);
         link = event.getLink();
         linkText.setText(link.toString());
+        Snackbar snackbar = Snackbar.with(getActivity())
+                .text(R.string.link_in_clipboard_message)
+                .duration(Snackbar.SnackbarDuration.LENGTH_SHORT);
+        SnackbarManager.show(snackbar);
     }
 
     public void onEventMainThread(SharelockAPIErrorEvent event) {

@@ -88,7 +88,7 @@ public class ComposeActivity extends ActionBarActivity {
             if (text.trim().length() > 0) {
                 final Snackbar snackbar = Snackbar
                         .with(this)
-                        .text("Do you want to add this data to Sharelock?")
+                        .text("Paste data from Clipboard?")
                         .actionLabel("Paste")
                         .actionColorResource(R.color.sharelock_orange)
                         .actionListener(new ActionClickListener() {

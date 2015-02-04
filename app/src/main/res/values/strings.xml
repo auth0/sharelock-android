@@ -20,6 +20,7 @@
     <string name="cancel_button">Cancel</string>
     <string name="share_link_chooser_title">Send with</string>
     <string name="new_link_prompt_title">Are you sure you want to encrypt new data?</string>
-    <string name="new_link_prompt_message">You\'ll lose your current encrypted data but the link is already in your clipboard.</string>
+    <string name="new_link_prompt_message">You\'ll lose your current encrypted data.</string>
     <string name="ok_button">Ok</string>
+    <string name="link_in_clipboard_message">Sharelock link copied to clipboard!</string>
 </resources>
