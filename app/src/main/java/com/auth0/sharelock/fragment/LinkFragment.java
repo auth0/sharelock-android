@@ -1,6 +1,8 @@
 package com.auth0.sharelock.fragment;
 
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -18,6 +20,7 @@ import com.auth0.sharelock.R;
 import com.auth0.sharelock.Secret;
 import com.auth0.sharelock.event.NewLinkEvent;
 import com.auth0.sharelock.event.RequestLinkEvent;
+import com.auth0.sharelock.event.RequestNewSecretEvent;
 import com.auth0.sharelock.event.SharelockAPIErrorEvent;
 import com.auth0.sharelock.widget.ShareEditText;
 
@@ -35,6 +38,8 @@ public class LinkFragment extends Fragment {
     ProgressBar progressBar;
     Button retryButton;
     ImageButton shareButton;
+    ImageButton newButton;
+    ViewGroup buttons;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -65,8 +70,10 @@ public class LinkFragment extends Fragment {
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        final EventBus bus = this.bus;
+
         TextView secretText = (TextView) view.findViewById(R.id.link_secret_text);
         secretText.setText(secret.getSecret());
         ShareEditText shareEditText = (ShareEditText) view.findViewById(R.id.link_share_list);
@@ -77,13 +84,15 @@ public class LinkFragment extends Fragment {
         linkText = (TextView) view.findViewById(R.id.link_text);
         progressBar = (ProgressBar) view.findViewById(R.id.link_progress);
         retryButton = (Button) view.findViewById(R.id.link_retry_button);
+        shareButton = (ImageButton) view.findViewById(R.id.link_share_button);
+        newButton = (ImageButton) view.findViewById(R.id.link_new_button);
+        buttons = (ViewGroup) view.findViewById(R.id.link_buttons);
         retryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 bus.post(new RequestLinkEvent(secret));
             }
         });
-        shareButton = (ImageButton) view.findViewById(R.id.link_share_button);
         shareButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -94,12 +103,30 @@ public class LinkFragment extends Fragment {
                 startActivity(Intent.createChooser(sendIntent, getString(R.string.share_link_chooser_title)));
             }
         });
+        newButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog dialog = new AlertDialog.Builder(getActivity())
+                        .setTitle(R.string.new_link_prompt_title)
+                        .setMessage(R.string.new_link_prompt_message)
+                        .setCancelable(true)
+                        .setPositiveButton(R.string.ok_button, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                bus.post(new RequestNewSecretEvent());
+                            }
+                        })
+                        .setNeutralButton(R.string.cancel_button, null)
+                        .create();
+                dialog.show();
+            }
+        });
     }
 
     public void onEvent(NewLinkEvent event) {
         bus.removeStickyEvent(event);
         progressBar.setVisibility(View.GONE);
-        shareButton.setVisibility(View.VISIBLE);
+        buttons.setVisibility(View.VISIBLE);
         link = event.getLink();
         linkText.setText(link.toString());
     }
@@ -108,12 +135,12 @@ public class LinkFragment extends Fragment {
         linkText.setText(R.string.link_generation_failed_message);
         progressBar.setVisibility(View.GONE);
         retryButton.setVisibility(View.VISIBLE);
-        shareButton.setVisibility(View.GONE);
+        buttons.setVisibility(View.GONE);
     }
 
     public void onEvent(RequestLinkEvent event) {
         retryButton.setVisibility(View.GONE);
         progressBar.setVisibility(View.VISIBLE);
-        shareButton.setVisibility(View.GONE);
+        buttons.setVisibility(View.GONE);
     }
 }

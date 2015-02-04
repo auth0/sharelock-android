@@ -103,17 +103,35 @@
         android:layout_alignRight="@+id/link_group"
         android:visibility="gone"
         />
-    <com.melnykov.fab.FloatingActionButton
-        android:id="@+id/link_share_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        app:fab_colorNormal="@color/sharelock_orange"
-        app:fab_colorPressed="@color/link_share_pressed"
-        app:fab_colorRipple="@color/sharelock_orange_dark"
-        android:src="@drawable/ic_link_share"
+    <LinearLayout
+        android:id="@+id/link_buttons"
+        android:layout_width="@dimen/button_group_width"
+        android:layout_height="@dimen/button_group_height"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
+        android:orientation="vertical"
+        android:gravity="bottom|center_horizontal"
         android:visibility="gone"
-        />
+        >
+        <com.melnykov.fab.FloatingActionButton
+            android:id="@+id/link_new_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fab_colorNormal="@color/link_new_normal"
+            app:fab_colorPressed="@color/link_new_pressed"
+            app:fab_colorRipple="@color/link_new_ripple"
+            android:src="@drawable/ic_link_new"
+            />
+        <com.melnykov.fab.FloatingActionButton
+            android:id="@+id/link_share_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            app:fab_colorNormal="@color/link_share_normal"
+            app:fab_colorPressed="@color/link_share_pressed"
+            app:fab_colorRipple="@color/link_share_ripple"
+            android:src="@drawable/ic_link_share"
+            android:layout_margin="16dp"
+            />
+    </LinearLayout>
 </RelativeLayout>

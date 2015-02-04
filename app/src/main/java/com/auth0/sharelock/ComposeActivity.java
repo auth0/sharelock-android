@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
@@ -19,6 +20,7 @@ import com.auth0.sharelock.event.ClipboardSecretEvent;
 import com.auth0.sharelock.event.NewLinkEvent;
 import com.auth0.sharelock.event.NewSecretEvent;
 import com.auth0.sharelock.event.RequestLinkEvent;
+import com.auth0.sharelock.event.RequestNewSecretEvent;
 import com.auth0.sharelock.event.SharelockAPIErrorEvent;
 import com.auth0.sharelock.fragment.LinkFragment;
 import com.auth0.sharelock.fragment.SecretInputFragment;
@@ -156,6 +158,9 @@ public class ComposeActivity extends ActionBarActivity {
             public void onSuccess(Uri link) {
                 Log.d(TAG, "Obtained link path " + link);
                 bus.postSticky(new NewLinkEvent(link));
+                final ClipboardManager clipboardManager = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                final ClipData clipData = ClipData.newRawUri("sharelocked-link", link);
+                clipboardManager.setPrimaryClip(clipData);
             }
 
             @Override
@@ -177,6 +182,13 @@ public class ComposeActivity extends ActionBarActivity {
                 dialog.show();
             }
         });
+    }
+
+    public void onEvent(RequestNewSecretEvent event) {
+        Intent intent = new Intent(this, ComposeActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        finish();
+        startActivity(intent);
     }
 
     @Override

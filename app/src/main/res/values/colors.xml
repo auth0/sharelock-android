@@ -5,6 +5,14 @@
     <color name="sharelock_background">@android:color/white</color>
     <color name="sharelock_navigation_bar_background">#FAFAFA</color>
     <color name="sharelock_navigation_button_text">#9b9b9b</color>
-    <color name="share_token_background">#eaeaea</color>
+    <color name="sharelock_gray_dark">#eaeaea</color>
+    <color name="sharelock_gray_light">#fafafa</color>
+    <color name="share_token_background">@color/sharelock_gray_dark</color>
     <color name="link_share_pressed">@color/sharelock_orange_dark</color>
+    <color name="link_share_normal">@color/sharelock_orange</color>
+    <color name="link_share_ripple">#35eaeaea</color>
+    <color name="link_new_pressed">@color/sharelock_gray_light</color>
+    <color name="link_new_normal">@color/sharelock_gray_light</color>
+    <color name="link_new_ripple">#35ffffff</color>
+
 </resources>
