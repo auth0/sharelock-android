@@ -1,8 +1,5 @@
 package com.auth0.sharelock.event;
 
-import android.content.Context;
-
-import com.auth0.sharelock.LinkAPIClient;
 import com.auth0.sharelock.Secret;
 
 public class RequestLinkEvent {

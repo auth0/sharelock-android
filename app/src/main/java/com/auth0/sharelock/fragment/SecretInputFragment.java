@@ -14,6 +14,7 @@ import android.widget.EditText;
 
 import com.auth0.sharelock.R;
 import com.auth0.sharelock.Secret;
+import com.auth0.sharelock.event.ClipboardSecretEvent;
 import com.auth0.sharelock.event.NewSecretEvent;
 
 import de.greenrobot.event.EventBus;
@@ -29,6 +30,18 @@ public class SecretInputFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bus = EventBus.getDefault();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        bus.registerSticky(this);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        bus.unregister(this);
     }
 
     @Override
@@ -63,5 +76,11 @@ public class SecretInputFragment extends Fragment {
                 bus.post(new NewSecretEvent(secret));
             }
         });
+    }
+
+    public void onEvent(ClipboardSecretEvent event) {
+        final String content = event.getClipboardContent();
+        secretField.setText(content);
+        nextButton.setVisibility(content.length() > 0 ? View.VISIBLE : View.INVISIBLE);
     }
 }

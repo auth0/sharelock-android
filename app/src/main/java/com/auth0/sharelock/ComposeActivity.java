@@ -1,5 +1,7 @@
 package com.auth0.sharelock;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
@@ -11,12 +13,16 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.auth0.sharelock.event.AllowedViewersModifiedEvent;
+import com.auth0.sharelock.event.ClipboardSecretEvent;
 import com.auth0.sharelock.event.NewLinkEvent;
 import com.auth0.sharelock.event.NewSecretEvent;
 import com.auth0.sharelock.event.RequestLinkEvent;
 import com.auth0.sharelock.fragment.LinkFragment;
 import com.auth0.sharelock.fragment.SecretInputFragment;
 import com.auth0.sharelock.fragment.ShareFragment;
+import com.nispok.snackbar.Snackbar;
+import com.nispok.snackbar.SnackbarManager;
+import com.nispok.snackbar.listeners.ActionClickListener;
 
 import de.greenrobot.event.EventBus;
 
@@ -63,6 +69,34 @@ public class ComposeActivity extends ActionBarActivity {
     protected void onStop() {
         super.onStop();
         bus.unregister(this);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        final int entryCount = getSupportFragmentManager().getBackStackEntryCount();
+        final ClipboardManager clipboardManager = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+        if (entryCount == 0 && clipboardManager.hasPrimaryClip() && clipboardManager.getPrimaryClip().getItemCount() > 0) {
+            final ClipData primaryClip = clipboardManager.getPrimaryClip();
+            final ClipData.Item item = primaryClip.getItemAt(0);
+            final String text = item.coerceToText(this).toString();
+            if (text.trim().length() > 0) {
+                final Snackbar snackbar = Snackbar
+                        .with(this)
+                        .text("Do you want to add this data to Sharelock?")
+                        .actionLabel("Paste")
+                        .actionColorResource(R.color.sharelock_orange)
+                        .actionListener(new ActionClickListener() {
+                            @Override
+                            public void onActionClicked(Snackbar snackbar) {
+                                bus.postSticky(new ClipboardSecretEvent(text));
+                                clipboardManager.setPrimaryClip(ClipData.newPlainText("", ""));
+                            }
+                        })
+                        .duration(Snackbar.SnackbarDuration.LENGTH_INDEFINITE);
+                SnackbarManager.show(snackbar);
+            }
+        }
     }
 
     @Override
