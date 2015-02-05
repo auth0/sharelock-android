@@ -23,4 +23,19 @@
     <string name="new_link_prompt_message">You\'ll lose your current encrypted data.</string>
     <string name="ok_button">Ok</string>
     <string name="link_in_clipboard_message">Sharelock link copied to clipboard!</string>
+    <string name="title_activity_about">AboutActivity</string>
+    <string name="sharelock_about">
+        <![CDATA[
+        <p>
+            The {sharelock} service provides you a simple and secure mechanism to share secrets with people you know. You can share secrets with people you trust in three simple steps:
+        </p>
+        <p>1. Provide the secret data and the list of people you want to allow access to this data to <b>sharelock.io</b>. The service encrypts and signs this information and sends you back the secure URL, which we call a sharelock.</p>
+        <p>2. Send the sharelock to your intended recipients using channels you choose, for example e-mail, Twitter, IRC, or public GitHub pages. The channel does not need to be secure as the sharelock itself is already encrypted.</p>
+        <p>3. Your recipient navigates to the sharelock URL and is required to authenticate using Auth0. The sharelock.io service validates the sharelock data had not been modified, decrypts it, and checks if the authentiated recipient is on the list of people you intended to share the secret with. If everything checks out, the recipient receives your secret.</p>
+        ]]>
+    </string>
+    <string name="action_about">About</string>
+    <string name="about_container_title">sharelock.io</string>
+    <string name="about_subtitle">about</string>
+
 </resources>

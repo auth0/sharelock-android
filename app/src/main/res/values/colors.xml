@@ -16,5 +16,7 @@
     <color name="link_new_pressed">@color/sharelock_gray_dark</color>
     <color name="link_new_normal">@color/sharelock_gray_light</color>
     <color name="link_new_ripple">#35ffffff</color>
-
+    <color name="about_text">#4A4A4A</color>
+    <color name="about_new_pressed">@color/sharelock_blue</color>
+    <color name="about_new_normal">@color/sharelock_blue_light</color>
 </resources>
