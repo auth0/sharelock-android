@@ -35,6 +35,7 @@
         ]]>
     </string>
     <string name="action_about">About</string>
+    <string name="action_new">New Sharelock</string>
     <string name="about_container_title">sharelock.io</string>
     <string name="about_subtitle">about</string>
 

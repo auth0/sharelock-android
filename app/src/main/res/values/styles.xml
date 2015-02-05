@@ -1,11 +1,16 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
         <item name="colorPrimary">@color/sharelock_orange</item>
         <item name="colorPrimaryDark">@color/sharelock_orange_dark</item>
         <item name="colorAccent">@color/sharelock_orange</item>
         <item name="windowActionBar">false</item>
+        <item name="actionOverflowButtonStyle">@style/AppTheme.MenuButton</item>
+    </style>
+
+    <style name="AppTheme.MenuButton" parent="Widget.AppCompat.ActionButton.Overflow">
+        <item name="android:src">@drawable/ic_action_navigation_more_vert</item>
     </style>
 
 </resources>

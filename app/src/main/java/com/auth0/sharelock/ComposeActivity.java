@@ -49,12 +49,6 @@ public class ComposeActivity extends ActionBarActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.sharelock_toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(null);
-        TextView subtitle = (TextView) findViewById(R.id.sharelock_toolbar_subtitle);
-        Typeface proximaLight = Typeface.createFromAsset(getAssets(), "fonts/ProximaNovaThin.otf");
-        subtitle.setTypeface(proximaLight);
-        TextView title = (TextView) findViewById(R.id.sharelock_toolbar_title);
-        Typeface proximaRegular = Typeface.createFromAsset(getAssets(), "fonts/ProximaNovaRegular.otf");
-        title.setTypeface(proximaRegular);
 
         bus = EventBus.getDefault();
         client = new LinkAPIClient();
