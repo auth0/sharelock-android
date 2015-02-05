@@ -34,7 +34,9 @@ import de.greenrobot.event.EventBus;
 
 public class ComposeActivity extends ActionBarActivity {
 
-    public static final String TAG = ComposeActivity.class.getName();
+    private static final String TAG = ComposeActivity.class.getName();
+    private static final String COMPOSE_CREATED_SECRET = "compose-created-secret";
+
     EventBus bus;
     Secret secret;
     LinkAPIClient client;
@@ -61,6 +63,8 @@ public class ComposeActivity extends ActionBarActivity {
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.sharelock_compose_container, new SecretInputFragment())
                     .commit();
+        } else {
+            secret = savedInstanceState.getParcelable(COMPOSE_CREATED_SECRET);
         }
     }
 
@@ -74,6 +78,14 @@ public class ComposeActivity extends ActionBarActivity {
     protected void onStop() {
         super.onStop();
         bus.unregister(this);
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        if (secret != null) {
+            outState.putParcelable(COMPOSE_CREATED_SECRET, secret);
+        }
     }
 
     @Override
