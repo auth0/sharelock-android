@@ -1,17 +1,38 @@
-# Add project specific ProGuard rules here.
-# By default, the flags in this file are appended to flags specified
-# in /Users/hernan/Development/Android.SDK/tools/proguard/proguard-android.txt
-# You can edit the include path and order by changing the proguardFiles
-# directive in build.gradle.
-#
-# For more details, see
-#   http://developer.android.com/guide/developing/tools/proguard.html
+# EventBus
+-keepclassmembers class ** {
+    public void onEvent*(**);
+}
 
-# Add any project specific keep options here:
+# Jackson
+-keep class com.fasterxml.jackson.databind.ObjectMapper {
+ public <methods>;
+ protected <methods>;
+}
+-keep class com.fasterxml.jackson.databind.ObjectWriter {
+ public ** writeValueAsString(**);
+}
 
-# If your project uses WebView with JS, uncomment the following
-# and specify the fully qualified class name to the JavaScript interface
-# class:
-#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
-#   public *;
-#}
+-keepnames class com.fasterxml.jackson.** { *; }
+
+-dontwarn com.fasterxml.jackson.databind.**
+
+# Android Async Http
+
+-keep class com.loopj.android.** { *; }
+-keep interface com.loopj.android.** { *; }
+
+# Auth0 Android Code
+-keep class com.auth0.core.** { *; }
+
+# Sharelock App
+
+-keepnames class * implements android.os.Parcelable {
+    public static final ** CREATOR;
+}
+
+# Keep the BuildConfig
+-keep class com.auth0.app.BuildConfig { *; }
+
+# Keep the support library
+-keep class android.support.v4.** { *; }
+-keep interface android.support.v4.** { *; }

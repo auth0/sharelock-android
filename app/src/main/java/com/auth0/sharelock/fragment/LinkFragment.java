@@ -56,7 +56,7 @@ public class LinkFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        bus.register(this);
+        bus.registerSticky(this);
     }
 
     @Override
@@ -80,6 +80,7 @@ public class LinkFragment extends Fragment {
         secretText.setText(secret.getSecret());
         ShareEditText shareEditText = (ShareEditText) view.findViewById(R.id.link_share_list);
         shareEditText.setFocusable(false);
+        shareEditText.allowDuplicates(false);
         for (String viewer: secret.getAllowedViewers()) {
             shareEditText.addObject(viewer);
         }
@@ -125,8 +126,7 @@ public class LinkFragment extends Fragment {
         });
     }
 
-    public void onEvent(NewLinkEvent event) {
-        bus.removeStickyEvent(event);
+    public void onEventMainThread(NewLinkEvent event) {
         progressBar.setVisibility(View.GONE);
         buttons.setVisibility(View.VISIBLE);
         link = event.getLink();
@@ -144,7 +144,7 @@ public class LinkFragment extends Fragment {
         buttons.setVisibility(View.GONE);
     }
 
-    public void onEvent(RequestLinkEvent event) {
+    public void onEventMainThread(RequestLinkEvent event) {
         retryButton.setVisibility(View.GONE);
         progressBar.setVisibility(View.VISIBLE);
         buttons.setVisibility(View.GONE);

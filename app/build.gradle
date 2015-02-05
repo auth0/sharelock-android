@@ -8,12 +8,24 @@ android {
         minSdkVersion 15
         targetSdkVersion 21
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
     }
+
+    signingConfigs {
+        release {
+            storeFile file("../`keystore/release.jks")
+            keyAlias "SharelockReleaseKey"
+            storePassword System.getenv("SHARELOCK_STORE_PASS")
+            keyPassword System.getenv("SHARELOCK_KEY_PASS")
+        }
+    }
+
+
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
     productFlavors {
