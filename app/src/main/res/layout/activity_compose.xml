@@ -1,21 +1,50 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:tools="http://schemas.android.com/tools"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:orientation="vertical"
                 tools:context=".ComposeActivity"
                 android:background="@color/sharelock_background"
     >
-    <include layout="@layout/toolbar_sherlock"
-             android:layout_weight="@integer/sharelock_toolbar_weight"
-             android:layout_width="match_parent"
-             android:layout_height="@dimen/sharelock_toolbar_height"
+    <android.support.v7.widget.Toolbar
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:id="@+id/sharelock_toolbar"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_width="match_parent"
+        android:minHeight="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:fitsSystemWindows="true"
+        android:layout_alignParentTop="true"
+        >
+        <TextView
+            android:id="@+id/sharelock_toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sharelock_logo_text"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/sharelock_logo_text_size"
+            />
+    </android.support.v7.widget.Toolbar>
+    <TextView
+        android:id="@+id/sharelock_toolbar_subtitle"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/sharelock_toolbar"
+        android:layout_above="@+id/sharelock_compose_container"
+        android:gravity="bottom"
+        android:text="@string/sharelock_subtitle_text"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/sharelock_subtitle_text_size"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:background="?attr/colorPrimary"
         />
     <FrameLayout
         android:id="@+id/sharelock_compose_container"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/sharelock_container_height"
-        android:layout_weight="@integer/sharelock_container_weight"
+        android:layout_height="330dp"
+        android:layout_alignParentBottom="true"
         >
     </FrameLayout>
-</LinearLayout>
+</RelativeLayout>
