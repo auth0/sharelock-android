@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
+import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -40,6 +41,14 @@ public class AboutActivity extends ActionBarActivity implements ObservableScroll
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
+
+        ImageButton newButton = (ImageButton) findViewById(R.id.about_new_button);
+        newButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startNewSecretActivity();
+            }
+        });
 
         final Toolbar toolbar = (Toolbar) findViewById(R.id.about_toolbar);
         setSupportActionBar(toolbar);
@@ -73,6 +82,11 @@ public class AboutActivity extends ActionBarActivity implements ObservableScroll
         aboutText.setText(Html.fromHtml(getString(R.string.sharelock_about)));
     }
 
+    private void startNewSecretActivity() {
+        final Intent intent = new Intent(this, ComposeActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -93,8 +107,7 @@ public class AboutActivity extends ActionBarActivity implements ObservableScroll
         }
 
         if (id == R.id.action_new) {
-            final Intent intent = new Intent(this, ComposeActivity.class);
-            startActivity(intent);
+            startNewSecretActivity();
             return true;
         }
 
