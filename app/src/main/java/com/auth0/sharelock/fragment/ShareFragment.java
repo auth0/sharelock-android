@@ -59,4 +59,10 @@ public class ShareFragment extends Fragment {
             }
         });
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        bus.removeAllStickyEvents();
+    }
 }

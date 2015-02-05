@@ -119,7 +119,7 @@ public class LinkFragment extends Fragment {
                                 bus.post(new RequestNewSecretEvent());
                             }
                         })
-                        .setNeutralButton(R.string.cancel_button, null)
+                        .setNegativeButton(R.string.cancel_button, null)
                         .create();
                 dialog.show();
             }

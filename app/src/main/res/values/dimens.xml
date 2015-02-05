@@ -17,4 +17,5 @@
     <dimen name="share_token_horizontal_padding">10dp</dimen>
     <dimen name="button_group_width">80dp</dimen>
     <dimen name="button_group_height">150dp</dimen>
+    <dimen name="link_share_list_left_margin">10dp</dimen>
 </resources>
