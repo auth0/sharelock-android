@@ -13,4 +13,19 @@
         <item name="android:src">@drawable/ic_action_navigation_more_vert</item>
     </style>
 
+    <style name="AppTheme.Message" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">16sp</item>
+        <item name="android:lineSpacingMultiplier">1.2</item>
+    </style>
+
+    <style name="AppTheme.Hint">
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">?attr/colorPrimary</item>
+    </style>
+
+    <style name="AppTheme.Tooltip">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColorLink">@android:color/black</item>
+    </style>
 </resources>

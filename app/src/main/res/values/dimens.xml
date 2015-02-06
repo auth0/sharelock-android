@@ -4,25 +4,31 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="sharelock_logo_text_size">26sp</dimen>
     <dimen name="sharelock_subtitle_text_size">26sp</dimen>
+    <dimen name="sharelock_message_text_size">16sp</dimen>
+    <item name="sharelock_message_interspace_multiplier" format="float" type="dimen">1.2</item>
+
     <dimen name="secret_hint_top_margin">43dp</dimen>
-    <dimen name="link_hint_top_margin">32dp</dimen>
     <dimen name="secret_input_tooltip_top_margin">6dp</dimen>
     <dimen name="share_token_vertical_padding">5dp</dimen>
     <dimen name="share_token_vertical_margin">1dp</dimen>
     <dimen name="share_token_height">30dp</dimen>
     <dimen name="share_token_corner_radius">15dp</dimen>
+    <dimen name="share_token_horizontal_padding">10dp</dimen>
+
+    <dimen name="link_hint_top_margin">32dp</dimen>
     <dimen name="link_progress_right_margin">10dp</dimen>
+    <dimen name="link_share_list_left_margin">10dp</dimen>
+
     <dimen name="navigation_button_text_size">14sp</dimen>
     <dimen name="navigation_button_horizontal_padding">15dp</dimen>
-    <dimen name="share_token_horizontal_padding">10dp</dimen>
     <dimen name="button_group_width">80dp</dimen>
     <dimen name="button_group_height">150dp</dimen>
-    <dimen name="link_share_list_left_margin">10dp</dimen>
+
     <dimen name="about_flexible_space_height">300dp</dimen>
     <dimen name="about_intersection_height">16dp</dimen>
     <dimen name="about_margin_horizontal">23dp</dimen>
     <dimen name="about_text_size">12sp</dimen>
     <dimen name="about_header_height">72dp</dimen>
-    <item name="sharelock_line_interspace_multiplier" format="float" type="dimen">1.6</item>
+    <item name="about_line_interspace_multiplier" format="float" type="dimen">1.6</item>
     <dimen name="about_container_title_text_size">24sp</dimen>
 </resources>

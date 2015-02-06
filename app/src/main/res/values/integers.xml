@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <integer name="sharelock_secret_max_length">500</integer>
     <integer name="secret_max_number_lines">4</integer>
     <integer name="share_max_number_lines">2</integer>
 </resources>

@@ -9,6 +9,7 @@
 
     <TextView
         android:id="@+id/share_input_message"
+        style="@style/AppTheme.Message"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/activity_horizontal_margin"
@@ -17,6 +18,7 @@
 
     <TextView
         android:id="@+id/secret_hint_text"
+        style="@style/AppTheme.Hint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/share_input_message"
@@ -24,8 +26,6 @@
         android:layout_marginLeft="@dimen/activity_horizontal_margin"
         android:layout_marginRight="@dimen/activity_horizontal_margin"
         android:text="@string/share_hint"
-        android:textAllCaps="true"
-        android:textColor="?attr/colorPrimary"
         />
     <com.auth0.sharelock.widget.ShareEditText
         android:id="@+id/share_input"
@@ -39,6 +39,8 @@
         android:inputType="textMultiLine|textEmailAddress"
         />
     <TextView
+        style="@style/AppTheme.Tooltip"
+        android:id="@+id/share_tooltip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/share_input"
@@ -46,6 +48,8 @@
         android:layout_marginRight="@dimen/activity_horizontal_margin"
         android:text="@string/share_tooltip"
         android:layout_marginTop="@dimen/secret_input_tooltip_top_margin"
+        android:paddingBottom="10dp"
+        android:linksClickable="true"
         />
 
     <RelativeLayout

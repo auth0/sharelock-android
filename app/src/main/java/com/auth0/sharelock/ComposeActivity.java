@@ -172,6 +172,10 @@ public class ComposeActivity extends ActionBarActivity {
                 final ClipboardManager clipboardManager = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
                 final ClipData clipData = ClipData.newRawUri("sharelocked-link", link);
                 clipboardManager.setPrimaryClip(clipData);
+                Snackbar snackbar = Snackbar.with(ComposeActivity.this)
+                        .text(R.string.link_in_clipboard_message)
+                        .duration(Snackbar.SnackbarDuration.LENGTH_SHORT);
+                SnackbarManager.show(snackbar);
             }
 
             @Override

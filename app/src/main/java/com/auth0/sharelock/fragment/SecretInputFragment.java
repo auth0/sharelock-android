@@ -6,11 +6,13 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.auth0.sharelock.R;
 import com.auth0.sharelock.Secret;
@@ -78,6 +80,8 @@ public class SecretInputFragment extends Fragment {
                 bus.post(new NewSecretEvent(secret));
             }
         });
+        TextView tooltip = (TextView) view.findViewById(R.id.secret_tooltip);
+        tooltip.setMovementMethod(LinkMovementMethod.getInstance());
     }
 
     public void onEvent(ClipboardSecretEvent event) {

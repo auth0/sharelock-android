@@ -131,10 +131,6 @@ public class LinkFragment extends Fragment {
         buttons.setVisibility(View.VISIBLE);
         link = event.getLink();
         linkText.setText(link.toString());
-        Snackbar snackbar = Snackbar.with(getActivity())
-                .text(R.string.link_in_clipboard_message)
-                .duration(Snackbar.SnackbarDuration.LENGTH_SHORT);
-        SnackbarManager.show(snackbar);
     }
 
     public void onEventMainThread(SharelockAPIErrorEvent event) {

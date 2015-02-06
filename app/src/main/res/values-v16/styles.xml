@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme.Message" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textSize">@dimen/sharelock_message_text_size</item>
+        <item name="android:lineSpacingMultiplier">@dimen/sharelock_message_interspace_multiplier</item>
+    </style>
+</resources>
