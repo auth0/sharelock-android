@@ -2,6 +2,7 @@ package com.auth0.sharelock;
 
 import android.content.Intent;
 import android.content.res.TypedArray;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
@@ -108,6 +109,20 @@ public class AboutActivity extends ActionBarActivity implements ObservableScroll
 
         if (id == R.id.action_new) {
             startNewSecretActivity();
+            return true;
+        }
+
+        if (id == R.id.action_privacy) {
+            final Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse(getString(R.string.privacy_url)));
+            startActivity(intent);
+            return true;
+        }
+
+        if (id == R.id.action_feedback) {
+            final Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse(getString(R.string.feedback_url)));
+            startActivity(intent);
             return true;
         }
 

@@ -11,4 +11,17 @@
           android:title="@string/action_settings"
           android:orderInCategory="101"
           app:showAsAction="never"/>
+
+    <item android:id="@+id/action_privacy"
+          android:title="@string/action_privacy"
+          android:orderInCategory="102"
+          app:showAsAction="never"
+        />
+
+    <item android:id="@+id/action_feedback"
+          android:title="@string/action_feedback"
+          android:orderInCategory="103"
+          app:showAsAction="never"
+        />
+
 </menu>

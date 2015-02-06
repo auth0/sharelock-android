@@ -37,5 +37,9 @@
     <string name="action_new">New Sharelock</string>
     <string name="about_container_title">sharelock.io</string>
     <string name="about_subtitle">about</string>
+    <string name="action_privacy">Privacy</string>
+    <string name="action_feedback">Feedback</string>
+    <string name="privacy_url">https://auth0.com/privacy</string>
+    <string name="feedback_url">http://sharelock.ideascale.com</string>
 
 </resources>

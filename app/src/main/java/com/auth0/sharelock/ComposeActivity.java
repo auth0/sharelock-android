@@ -134,6 +134,19 @@ public class ComposeActivity extends ActionBarActivity {
             return true;
         }
 
+        if (id == R.id.action_privacy) {
+            final Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse(getString(R.string.privacy_url)));
+            startActivity(intent);
+            return true;
+        }
+
+        if (id == R.id.action_feedback) {
+            final Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse(getString(R.string.feedback_url)));
+            startActivity(intent);
+            return true;
+        }
         return super.onOptionsItemSelected(item);
     }
 
