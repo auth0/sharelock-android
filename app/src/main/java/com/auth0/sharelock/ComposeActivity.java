@@ -5,6 +5,7 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
@@ -32,7 +33,7 @@ import com.nispok.snackbar.listeners.ActionClickListener;
 import de.greenrobot.event.EventBus;
 
 
-public class ComposeActivity extends ActionBarActivity {
+public class ComposeActivity extends BaseMenuActivity {
 
     private static final String TAG = ComposeActivity.class.getName();
     private static final String COMPOSE_CREATED_SECRET = "compose-created-secret";
@@ -51,7 +52,6 @@ public class ComposeActivity extends ActionBarActivity {
         getSupportActionBar().setTitle(null);
 
         bus = EventBus.getDefault();
-        client = new LinkAPIClient();
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
@@ -94,8 +94,8 @@ public class ComposeActivity extends ActionBarActivity {
             if (text.trim().length() > 0) {
                 final Snackbar snackbar = Snackbar
                         .with(this)
-                        .text("Paste data from Clipboard?")
-                        .actionLabel("Paste")
+                        .text(getString(R.string.paste_from_clipboard_prompt))
+                        .actionLabel(getString(R.string.paste_clipboard_action))
                         .actionColorResource(R.color.sharelock_orange)
                         .actionListener(new ActionClickListener() {
                             @Override
@@ -111,43 +111,8 @@ public class ComposeActivity extends ActionBarActivity {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_compose, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        if (id == R.id.action_about) {
-            startActivity(new Intent(this, AboutActivity.class));
-            return true;
-        }
-
-        if (id == R.id.action_privacy) {
-            final Intent intent = new Intent(Intent.ACTION_VIEW);
-            intent.setData(Uri.parse(getString(R.string.privacy_url)));
-            startActivity(intent);
-            return true;
-        }
-
-        if (id == R.id.action_feedback) {
-            final Intent intent = new Intent(Intent.ACTION_VIEW);
-            intent.setData(Uri.parse(getString(R.string.feedback_url)));
-            startActivity(intent);
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
+    protected int getMenuLayout() {
+        return R.menu.menu_compose;
     }
 
     public void onEvent(NewSecretEvent event) {
@@ -177,6 +142,8 @@ public class ComposeActivity extends ActionBarActivity {
     public void onEvent(RequestLinkEvent event) {
         final Secret secret = event.getSecret();
         final EventBus bus = this.bus;
+        SharedPreferences preferences = getSharedPreferences(getPackageName(), MODE_PRIVATE);
+        client = new LinkAPIClient(preferences.getString(LinkAPIClient.SHARELOCK_ENDPOINT_KEY, LinkAPIClient.DEFAULT_URL));
         client.generateLinkForSecret(secret, this, new LinkAPIClient.LinkCallback() {
             @Override
             public void onSuccess(Uri link) {

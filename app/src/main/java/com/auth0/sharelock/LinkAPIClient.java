@@ -16,16 +16,21 @@ import java.util.Map;
 
 public class LinkAPIClient {
 
+    public static final String SHARELOCK_ENDPOINT_KEY = "SharelockEndpoint";
+    public static final String DEFAULT_URL = "https://sharelock.io";
     private final AsyncHttpClient client;
     private final JsonEntityBuilder entityBuilder;
+    private final Uri baseUri;
 
-    public LinkAPIClient() {
+    public LinkAPIClient(String baseUrl) {
         this.client = new AsyncHttpClient();
         this.entityBuilder = new JsonEntityBuilder(new ObjectMapper());
+        this.baseUri = Uri.parse(baseUrl);
     }
 
     public void generateLinkForSecret(Secret secret, Context context, final LinkCallback callback) {
-        final String generateLinkURL = "https://sharelock.io/create";
+        final Uri baseUri = this.baseUri;
+        final String generateLinkURL = Uri.withAppendedPath(baseUri, "/create").toString();
         Map<String, Object> params = new HashMap<>();
         params.put("d", secret.getSecret());
         StringBuilder acl = new StringBuilder();
@@ -39,11 +44,7 @@ public class LinkAPIClient {
         this.client.post(context, generateLinkURL, entity, "application/json", new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-                Uri linkUri = new Uri.Builder()
-                        .scheme("https")
-                        .authority("sharelock.io")
-                        .appendEncodedPath(new String(responseBody))
-                        .build();
+                Uri linkUri = Uri.withAppendedPath(baseUri, new String(responseBody));
                 callback.onSuccess(linkUri);
             }
 

@@ -25,7 +25,7 @@ import com.nineoldandroids.view.ViewHelper;
 import com.nineoldandroids.view.ViewPropertyAnimator;
 
 
-public class AboutActivity extends ActionBarActivity implements ObservableScrollViewCallbacks {
+public class AboutActivity extends BaseMenuActivity implements ObservableScrollViewCallbacks {
 
     private int mFlexibleSpaceImageHeight;
     private int mActionBarSize;
@@ -89,44 +89,8 @@ public class AboutActivity extends ActionBarActivity implements ObservableScroll
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_about, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        if (id == R.id.action_new) {
-            startNewSecretActivity();
-            return true;
-        }
-
-        if (id == R.id.action_privacy) {
-            final Intent intent = new Intent(Intent.ACTION_VIEW);
-            intent.setData(Uri.parse(getString(R.string.privacy_url)));
-            startActivity(intent);
-            return true;
-        }
-
-        if (id == R.id.action_feedback) {
-            final Intent intent = new Intent(Intent.ACTION_VIEW);
-            intent.setData(Uri.parse(getString(R.string.feedback_url)));
-            startActivity(intent);
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
+    protected int getMenuLayout() {
+        return R.menu.menu_about;
     }
 
     @Override
