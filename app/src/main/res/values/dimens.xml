@@ -3,7 +3,7 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="sharelock_logo_text_size">26sp</dimen>
-    <dimen name="sharelock_subtitle_text_size">26sp</dimen>
+    <dimen name="sharelock_subtitle_text_size">22sp</dimen>
     <dimen name="sharelock_message_text_size">16sp</dimen>
     <item name="sharelock_message_interspace_multiplier" format="float" type="dimen">1.2</item>
 
@@ -17,7 +17,7 @@
 
     <dimen name="link_hint_top_margin">32dp</dimen>
     <dimen name="link_progress_right_margin">10dp</dimen>
-    <dimen name="link_share_list_left_margin">10dp</dimen>
+    <dimen name="link_share_list_left_margin">60dp</dimen>
 
     <dimen name="navigation_button_text_size">14sp</dimen>
     <dimen name="navigation_button_horizontal_padding">15dp</dimen>
@@ -31,5 +31,6 @@
     <dimen name="about_header_height">72dp</dimen>
     <item name="about_line_interspace_multiplier" format="float" type="dimen">1.6</item>
     <dimen name="about_container_title_text_size">24sp</dimen>
-    <dimen name="settings_endpoint_edit_text_width">240dp</dimen>
+    <dimen name="settings_endpoint_edit_text_width">230dp</dimen>
+    <dimen name="sharelock_left_margin">66dp</dimen>
 </resources>

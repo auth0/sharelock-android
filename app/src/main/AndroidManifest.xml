@@ -27,6 +27,9 @@
 
         <activity android:name=".SettingsActivity"
                   android:label="@string/title_activity_settings"/>
+        <meta-data
+            android:name="com.crashlytics.ApiKey"
+            android:value="29532378621e803b8eeaac63d9dd874a1b3d9689" />
     </application>
 
 </manifest>

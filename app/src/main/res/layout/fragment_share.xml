@@ -12,7 +12,7 @@
         style="@style/AppTheme.Message"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginLeft="@dimen/sharelock_left_margin"
         android:layout_marginRight="@dimen/activity_horizontal_margin"
         android:text="@string/secret_input_message"/>
 
@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/share_input_message"
         android:layout_marginTop="@dimen/secret_hint_top_margin"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginLeft="@dimen/sharelock_left_margin"
         android:layout_marginRight="@dimen/activity_horizontal_margin"
         android:text="@string/share_hint"
         />
@@ -33,7 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/secret_hint_text"
         android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginLeft="@dimen/sharelock_left_margin"
         android:layout_marginRight="@dimen/activity_horizontal_margin"
         android:maxLines="@integer/share_max_number_lines"
         android:inputType="textMultiLine|textEmailAddress"
@@ -44,7 +44,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/share_input"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginLeft="@dimen/sharelock_left_margin"
         android:layout_marginRight="@dimen/activity_horizontal_margin"
         android:text="@string/share_tooltip"
         android:layout_marginTop="@dimen/secret_input_tooltip_top_margin"

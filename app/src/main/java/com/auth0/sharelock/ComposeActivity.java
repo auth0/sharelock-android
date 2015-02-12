@@ -26,11 +26,13 @@ import com.auth0.sharelock.event.SharelockAPIErrorEvent;
 import com.auth0.sharelock.fragment.LinkFragment;
 import com.auth0.sharelock.fragment.SecretInputFragment;
 import com.auth0.sharelock.fragment.ShareFragment;
+import com.crashlytics.android.Crashlytics;
 import com.nispok.snackbar.Snackbar;
 import com.nispok.snackbar.SnackbarManager;
 import com.nispok.snackbar.listeners.ActionClickListener;
 
 import de.greenrobot.event.EventBus;
+import io.fabric.sdk.android.Fabric;
 
 
 public class ComposeActivity extends BaseMenuActivity {
@@ -45,6 +47,7 @@ public class ComposeActivity extends BaseMenuActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Fabric.with(this, new Crashlytics());
         setContentView(R.layout.activity_compose);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.sharelock_toolbar);

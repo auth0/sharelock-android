@@ -15,14 +15,10 @@
         android:fitsSystemWindows="true"
         android:layout_alignParentTop="true"
         >
-        <TextView
-            android:id="@+id/sharelock_toolbar_title"
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/sharelock_logo_text"
-            android:textColor="@android:color/white"
-            android:textSize="@dimen/sharelock_logo_text_size"
-            />
+            android:src="@drawable/ic_toolbar_icon"/>
     </android.support.v7.widget.Toolbar>
     <TextView
         android:id="@+id/sharelock_toolbar_subtitle"
@@ -36,7 +32,7 @@
         android:textSize="@dimen/sharelock_subtitle_text_size"
         android:fontFamily="sans-serif-light"
         android:paddingBottom="@dimen/activity_vertical_margin"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingLeft="@dimen/sharelock_left_margin"
         android:background="?attr/colorPrimary"
         />
     <View
@@ -51,7 +47,7 @@
         android:layout_width="match_parent"
         android:layout_height="330dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginLeft="@dimen/sharelock_left_margin"
         android:layout_marginRight="@dimen/activity_horizontal_margin"
         >
         <TextView
