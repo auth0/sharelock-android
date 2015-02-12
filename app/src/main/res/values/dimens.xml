@@ -31,6 +31,6 @@
     <dimen name="about_header_height">72dp</dimen>
     <item name="about_line_interspace_multiplier" format="float" type="dimen">1.6</item>
     <dimen name="about_container_title_text_size">24sp</dimen>
-    <dimen name="settings_endpoint_edit_text_width">230dp</dimen>
+    <dimen name="settings_endpoint_edit_text_width">195dp</dimen>
     <dimen name="sharelock_left_margin">66dp</dimen>
 </resources>
