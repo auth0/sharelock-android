@@ -5,6 +5,7 @@
     <color name="sharelock_background">@android:color/white</color>
     <color name="sharelock_navigation_bar_background">#FAFAFA</color>
     <color name="sharelock_navigation_button_text">#9b9b9b</color>
+    <color name="sharelock_line_separator">#4c9b9b9b</color>
     <color name="sharelock_gray_dark">#eaeaea</color>
     <color name="sharelock_gray_light">#fafafa</color>
     <color name="sharelock_blue">#2caedb</color>

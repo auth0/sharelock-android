@@ -33,4 +33,7 @@
     <dimen name="about_container_title_text_size">24sp</dimen>
     <dimen name="settings_endpoint_edit_text_width">195dp</dimen>
     <dimen name="sharelock_left_margin">66dp</dimen>
+    <dimen name="link_secret_hint_icon_left_margin">26dp</dimen>
+    <dimen name="link_line_separator_top_margin">10dp</dimen>
+    <dimen name="link_hint_icon_left_margin">26dp</dimen>
 </resources>

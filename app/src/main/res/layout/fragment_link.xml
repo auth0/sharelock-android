@@ -16,6 +16,13 @@
         android:layout_marginRight="@dimen/activity_horizontal_margin"
         android:text="@string/secret_hint"
         />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_data"
+        android:layout_alignTop="@id/link_secret_hint"
+        android:layout_marginLeft="@dimen/link_secret_hint_icon_left_margin"/>
+
     <TextView
         android:id="@+id/link_secret_text"
         android:layout_width="fill_parent"
@@ -28,7 +35,16 @@
         android:textColor="#000"
         android:maxLines="2"
         />
-
+    
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/sharelock_line_separator"
+        android:layout_below="@id/link_secret_text"
+        android:layout_marginLeft="@dimen/sharelock_left_margin"
+        android:layout_marginTop="@dimen/link_line_separator_top_margin"
+        />
+    
     <TextView
         android:id="@+id/link_share_hint"
         style="@style/AppTheme.Hint"
@@ -40,6 +56,14 @@
         android:layout_marginRight="@dimen/activity_horizontal_margin"
         android:text="@string/share_hint"
         />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_share"
+        android:layout_alignTop="@id/link_share_hint"
+        android:layout_marginLeft="24dp"
+        />
+
     <com.auth0.sharelock.widget.ShareEditText
         android:id="@+id/link_share_list"
         android:layout_width="fill_parent"
@@ -54,6 +78,15 @@
         android:inputType="none"
         />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/sharelock_line_separator"
+        android:layout_below="@id/link_share_list"
+        android:layout_marginLeft="@dimen/sharelock_left_margin"
+        android:layout_marginTop="@dimen/link_line_separator_top_margin"
+        />
+
     <TextView
         android:id="@+id/link_hint"
         style="@style/AppTheme.Hint"
@@ -64,6 +97,14 @@
         android:layout_marginLeft="@dimen/sharelock_left_margin"
         android:layout_marginRight="@dimen/activity_horizontal_margin"
         android:text="@string/link_hint"
+        />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_lock"
+        android:layout_alignTop="@id/link_hint"
+        android:layout_marginLeft="@dimen/link_hint_icon_left_margin"
+        android:layout_marginTop="-2dp"
         />
 
     <LinearLayout
