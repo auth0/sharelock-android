@@ -1,6 +1,8 @@
 package com.auth0.sharelock.fragment;
 
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -12,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.auth0.sharelock.R;
@@ -78,6 +81,15 @@ public class SecretInputFragment extends Fragment {
             public void onClick(View v) {
                 Secret secret = new Secret(secretField.getText().toString());
                 bus.post(new NewSecretEvent(secret));
+            }
+        });
+        ImageView craftedBy = (ImageView) view.findViewById(R.id.crafted_by);
+        craftedBy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(getString(R.string.crafted_by_url)));
+                startActivity(intent);
             }
         });
     }

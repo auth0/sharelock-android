@@ -47,5 +47,5 @@
     <string name="settings_subtitle">settings</string>
     <string name="settings_url_endpoint_tooltip">By default it uses https://sharelock.io but you can change it to your own instance of sharelock</string>
     <string name="share_input_message">Type who you want to give access to:\nEmail addresses, Twitter handles, email domain names (e.g. @example.com)</string>
-
+    <string name="crafted_by_url">http://auth0.com</string>
 </resources>

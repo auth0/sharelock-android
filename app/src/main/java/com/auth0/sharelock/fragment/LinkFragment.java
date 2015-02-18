@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -122,6 +123,15 @@ public class LinkFragment extends Fragment {
                         .setNegativeButton(R.string.cancel_button, null)
                         .create();
                 dialog.show();
+            }
+        });
+        ImageView craftedBy = (ImageView) view.findViewById(R.id.crafted_by);
+        craftedBy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(getString(R.string.crafted_by_url)));
+                startActivity(intent);
             }
         });
     }

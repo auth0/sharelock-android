@@ -40,6 +40,7 @@ public class ComposeActivity extends BaseMenuActivity {
 
     private static final String TAG = ComposeActivity.class.getName();
     private static final String COMPOSE_CREATED_SECRET = "compose-created-secret";
+    private static final int DELAY_MILLIS = 2000;
 
     EventBus bus;
     Secret secret;
@@ -166,7 +167,7 @@ public class ComposeActivity extends BaseMenuActivity {
                                 .duration(Snackbar.SnackbarDuration.LENGTH_SHORT);
                         SnackbarManager.show(snackbar);
                     }
-                }, 2000);
+                }, DELAY_MILLIS);
             }
 
             @Override
