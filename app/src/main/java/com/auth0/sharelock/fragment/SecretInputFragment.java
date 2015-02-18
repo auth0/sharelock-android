@@ -80,8 +80,6 @@ public class SecretInputFragment extends Fragment {
                 bus.post(new NewSecretEvent(secret));
             }
         });
-        TextView tooltip = (TextView) view.findViewById(R.id.secret_tooltip);
-        tooltip.setMovementMethod(LinkMovementMethod.getInstance());
     }
 
     public void onEvent(ClipboardSecretEvent event) {

@@ -13,8 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/sharelock_left_margin"
-        android:layout_marginRight="@dimen/activity_horizontal_margin"
-        android:text="@string/secret_input_message"/>
+        android:layout_marginRight="22dp"
+        android:text="@string/share_input_message"/>
 
     <TextView
         android:id="@+id/share_hint_text"

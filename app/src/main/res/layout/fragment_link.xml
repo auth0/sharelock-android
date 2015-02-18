@@ -44,7 +44,7 @@
         android:layout_marginLeft="@dimen/sharelock_left_margin"
         android:layout_marginTop="@dimen/link_line_separator_top_margin"
         />
-    
+
     <TextView
         android:id="@+id/link_share_hint"
         style="@style/AppTheme.Hint"

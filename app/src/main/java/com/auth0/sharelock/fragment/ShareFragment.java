@@ -60,8 +60,6 @@ public class ShareFragment extends Fragment {
                 bus.post(new AllowedViewersModifiedEvent(shareField.getObjects()));
             }
         });
-        TextView tooltip = (TextView) view.findViewById(R.id.share_tooltip);
-        tooltip.setMovementMethod(LinkMovementMethod.getInstance());
     }
 
     @Override

@@ -5,11 +5,11 @@
     <string name="action_settings">Settings</string>
     <string name="sharelock_logo_text">{sharelock}</string>
     <string name="sharelock_subtitle_text">securely share data</string>
-    <string name="secret_input_message">Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor incididunt.</string>
+    <string name="secret_input_message">Type the secret data, passwords, keys, URLs, any text up to 500 characters.</string>
     <string name="secret_hint">data to share</string>
     <string name="next_button">next</string>
     <string name="share_hint">who to share with</string>
-    <string name="link_hint">sherlocked data</string>
+    <string name="link_hint">sharelock link</string>
     <string name="link_in_progress">Encrypting your data…</string>
     <string name="link_generation_failed_title">There was an error</string>
     <string name="link_generation_failed_message">Couldn\'t encrypt your data. Please try again.</string>
@@ -46,5 +46,6 @@
     <string name="settings_sherlock_url_hint">Sharelock URL</string>
     <string name="settings_subtitle">settings</string>
     <string name="settings_url_endpoint_tooltip">By default it uses https://sharelock.io but you can change it to your own instance of sharelock</string>
+    <string name="share_input_message">Type who you want to give access to:\nEmail addresses, Twitter handles, email domain names (e.g. @example.com)</string>
 
 </resources>
