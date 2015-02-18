@@ -9,6 +9,7 @@ import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -43,6 +44,7 @@ public class ComposeActivity extends BaseMenuActivity {
     EventBus bus;
     Secret secret;
     LinkAPIClient client;
+    Handler handler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +57,7 @@ public class ComposeActivity extends BaseMenuActivity {
         getSupportActionBar().setTitle(null);
 
         bus = EventBus.getDefault();
+        handler = new Handler();
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
@@ -149,16 +152,21 @@ public class ComposeActivity extends BaseMenuActivity {
         client = new LinkAPIClient(preferences.getString(LinkAPIClient.SHARELOCK_ENDPOINT_KEY, LinkAPIClient.DEFAULT_URL));
         client.generateLinkForSecret(secret, this, new LinkAPIClient.LinkCallback() {
             @Override
-            public void onSuccess(Uri link) {
+            public void onSuccess(final Uri link) {
                 Log.d(TAG, "Obtained link path " + link);
-                bus.postSticky(new NewLinkEvent(link));
-                final ClipboardManager clipboardManager = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
-                final ClipData clipData = ClipData.newRawUri("sharelocked-link", link);
-                clipboardManager.setPrimaryClip(clipData);
-                Snackbar snackbar = Snackbar.with(ComposeActivity.this)
-                        .text(R.string.link_in_clipboard_message)
-                        .duration(Snackbar.SnackbarDuration.LENGTH_SHORT);
-                SnackbarManager.show(snackbar);
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        bus.postSticky(new NewLinkEvent(link));
+                        final ClipboardManager clipboardManager = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                        final ClipData clipData = ClipData.newRawUri("sharelocked-link", link);
+                        clipboardManager.setPrimaryClip(clipData);
+                        Snackbar snackbar = Snackbar.with(ComposeActivity.this)
+                                .text(R.string.link_in_clipboard_message)
+                                .duration(Snackbar.SnackbarDuration.LENGTH_SHORT);
+                        SnackbarManager.show(snackbar);
+                    }
+                }, 2000);
             }
 
             @Override
