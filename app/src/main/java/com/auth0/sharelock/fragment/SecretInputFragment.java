@@ -86,6 +86,7 @@ public class SecretInputFragment extends Fragment {
 
     public void onEvent(ClipboardSecretEvent event) {
         final String content = event.getClipboardContent();
+        bus.removeStickyEvent(event);
         secretField.setText(content);
         nextButton.setVisibility(content.length() > 0 ? View.VISIBLE : View.INVISIBLE);
     }
