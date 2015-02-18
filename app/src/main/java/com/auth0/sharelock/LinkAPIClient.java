@@ -44,7 +44,11 @@ public class LinkAPIClient {
         this.client.post(context, generateLinkURL, entity, "application/json", new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-                Uri linkUri = Uri.withAppendedPath(baseUri, new String(responseBody));
+                String pathSegment = new String(responseBody);
+                if (pathSegment.startsWith("/")) {
+                    pathSegment = pathSegment.substring(1);
+                }
+                Uri linkUri = Uri.withAppendedPath(baseUri, pathSegment);
                 callback.onSuccess(linkUri);
             }
 
