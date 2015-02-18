@@ -7,9 +7,7 @@
     <string name="sharelock_subtitle_text">securely share data</string>
     <string name="secret_input_message">Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor incididunt.</string>
     <string name="secret_hint">data to share</string>
-    <string name="secret_input_tooltip">Need <a href="http://sharelock.ideascale.com/a/dtd/Support-secrets-longer-than-500-characters/146355-33649">more space</a> or <a href="http://sharelock.ideascale.com/a/dtd/Support-securely-sharing-files/146356-33649">file sharing</a>?</string>
     <string name="next_button">next</string>
-    <string name="share_tooltip">Need auditing, <a href="http://sharelock.ideascale.com/a/dtd/Support-enterprise-credentials/146358-33649">enterprise credentials</a>, or <a href="http://sharelock.ideascale.com/a/dtd/Support-time-limits/146359-33649">time limits</a>?</string>
     <string name="share_hint">who to share with</string>
     <string name="link_hint">sherlocked data</string>
     <string name="link_in_progress">Encrypting your data…</string>
