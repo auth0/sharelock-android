@@ -13,6 +13,7 @@
     <string name="link_in_progress">Encrypting your data…</string>
     <string name="link_generation_failed_title">There was an error</string>
     <string name="link_generation_failed_message">Couldn\'t encrypt your data. Please try again.</string>
+    <string name="link_generation_failed">Couldn\'t encrypt your data.</string>
     <string name="retry_button">Retry</string>
     <string name="cancel_button">Cancel</string>
     <string name="share_link_chooser_title">Send with</string>

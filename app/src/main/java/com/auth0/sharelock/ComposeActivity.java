@@ -176,7 +176,7 @@ public class ComposeActivity extends BaseMenuActivity {
                 bus.post(new SharelockAPIErrorEvent());
                 AlertDialog dialog = new AlertDialog.Builder(ComposeActivity.this)
                         .setTitle(R.string.link_generation_failed_title)
-                        .setMessage(R.string.link_generation_failed_message)
+                        .setMessage(R.string.link_generation_failed)
                         .setCancelable(true)
                         .setPositiveButton(R.string.retry_button, new DialogInterface.OnClickListener() {
                             @Override
