@@ -15,9 +15,16 @@
           android:orderInCategory="102"
           app:showAsAction="never"
         />
-    <item android:id="@+id/action_feedback"
-          android:title="@string/action_feedback"
+
+    <item android:id="@+id/action_tos"
+          android:title="@string/action_tos"
           android:orderInCategory="103"
+          app:showAsAction="never"
+        />
+
+    <item android:id="@+id/action_security"
+          android:title="@string/action_security"
+          android:orderInCategory="104"
           app:showAsAction="never"
         />
 

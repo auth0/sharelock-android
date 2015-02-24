@@ -48,9 +48,16 @@ public abstract class BaseMenuActivity extends ActionBarActivity {
             return true;
         }
 
-        if (id == R.id.action_feedback) {
+        if (id == R.id.action_tos) {
             final Intent intent = new Intent(Intent.ACTION_VIEW);
-            intent.setData(Uri.parse(getString(R.string.feedback_url)));
+            intent.setData(Uri.parse(getString(R.string.tos_url)));
+            startActivity(intent);
+            return true;
+        }
+
+        if (id == R.id.action_security) {
+            final Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse(getString(R.string.security_url)));
             startActivity(intent);
             return true;
         }

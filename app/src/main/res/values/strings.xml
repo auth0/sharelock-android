@@ -37,9 +37,9 @@
     <string name="about_container_title">sharelock.io</string>
     <string name="about_subtitle">about</string>
     <string name="action_privacy">Privacy</string>
-    <string name="action_feedback">Feedback</string>
-    <string name="privacy_url">https://auth0.com/privacy</string>
-    <string name="feedback_url">http://sharelock.ideascale.com</string>
+    <string name="privacy_url">https://sharelock.io/privacy</string>
+    <string name="tos_url">https://sharelock.io/tos</string>
+    <string name="security_url">https://sharelock.io/security</string>
     <string name="paste_from_clipboard_prompt">Paste data from Clipboard?</string>
     <string name="paste_clipboard_action">Paste</string>
     <string name="title_activity_settings">Settings</string>
@@ -49,4 +49,6 @@
     <string name="settings_url_endpoint_tooltip">By default it uses https://sharelock.io but you can change it to your own instance of sharelock</string>
     <string name="share_input_message">Type who you want to give access to:\nEmail addresses, Twitter handles, email domain names (e.g. @example.com)</string>
     <string name="crafted_by_url">http://auth0.com</string>
+    <string name="action_tos">Terms of Service</string>
+    <string name="action_security">Security</string>
 </resources>
