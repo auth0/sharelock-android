@@ -27,6 +27,8 @@ import de.greenrobot.event.EventBus;
 
 public class SecretInputFragment extends Fragment {
 
+    public static final String SECRET_INPUT_FRAGMENT_SECRET_ARGUMENT = "SECRET_INPUT_FRAGMENT_SECRET_ARGUMENT";
+
     EventBus bus;
 
     EditText secretField;
@@ -92,6 +94,11 @@ public class SecretInputFragment extends Fragment {
                 startActivity(intent);
             }
         });
+        final Bundle arguments = getArguments();
+        if (arguments != null) {
+            secretField.setText(arguments.getString(SECRET_INPUT_FRAGMENT_SECRET_ARGUMENT));
+        }
+
     }
 
     public void onEvent(ClipboardSecretEvent event) {

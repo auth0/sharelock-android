@@ -60,9 +60,26 @@ public class ComposeActivity extends BaseMenuActivity {
         bus = EventBus.getDefault();
         handler = new Handler();
 
+        Intent intent = getIntent();
+        String action = intent.getAction();
+        String type = intent.getType();
+
+        String sharedText = null;
+        if (Intent.ACTION_SEND.equals(action) && type != null) {
+            if ("text/plain".equals(type)) {
+                sharedText = intent.getStringExtra(Intent.EXTRA_TEXT);
+            }
+        }
+
         if (savedInstanceState == null) {
+            final SecretInputFragment fragment = new SecretInputFragment();
+            if (sharedText != null) {
+                Bundle arguments = new Bundle();
+                arguments.putString(SecretInputFragment.SECRET_INPUT_FRAGMENT_SECRET_ARGUMENT, sharedText);
+                fragment.setArguments(arguments);
+            }
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.sharelock_compose_container, new SecretInputFragment())
+                    .replace(R.id.sharelock_compose_container, fragment)
                     .commit();
         } else {
             secret = savedInstanceState.getParcelable(COMPOSE_CREATED_SECRET);
