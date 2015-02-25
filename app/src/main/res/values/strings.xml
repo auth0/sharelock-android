@@ -5,10 +5,10 @@
     <string name="action_settings">Settings</string>
     <string name="sharelock_logo_text">{sharelock}</string>
     <string name="sharelock_subtitle_text">securely share data</string>
-    <string name="secret_input_message">Type the secret data, passwords, keys, URLs, any text up to 500 characters.</string>
-    <string name="secret_hint">data to share</string>
+    <string name="secret_input_message">Type your secret: data, passwords, keys, URLs - anything between 1 and 500 characters.</string>
+    <string name="secret_hint">your secret</string>
     <string name="next_button">next</string>
-    <string name="share_hint">who to share with</string>
+    <string name="share_hint">who gets access?</string>
     <string name="link_hint">sharelock link</string>
     <string name="link_in_progress">Encrypting your data…</string>
     <string name="link_generation_failed_title">There was an error</string>
@@ -25,11 +25,11 @@
     <string name="sharelock_about">
         <![CDATA[
         <p>
-            The {sharelock} service provides you a simple and secure mechanism to share secrets with people you know. You can share secrets with people you trust in three simple steps:
+            Sharelock.io provides you with a simple and secure way to share secrets with people you know. It’s easy:
         </p>
-        <p>1. Provide the secret data and the list of people you want to allow access to this data to <b>sharelock.io</b>. The service encrypts and signs this information and sends you back the secure URL, which we call a sharelock.</p>
-        <p>2. Send the sharelock to your intended recipients using channels you choose, for example e-mail, Twitter, IRC, or public GitHub pages. The channel does not need to be secure as the sharelock itself is already encrypted.</p>
-        <p>3. Your recipient navigates to the sharelock URL and is required to authenticate using Auth0. The sharelock.io service validates the sharelock data had not been modified, decrypts it, and checks if the authentiated recipient is on the list of people you intended to share the secret with. If everything checks out, the recipient receives your secret.</p>
+        <p>1. Enter your secret and a list of people that should be allowed access to your secret. Sharelock.io encrypts and signs this information and sends you a secure URL, which is called a sharelock.</p>
+        <p>2. Send the sharelock to your intended recipients using any channel you choose (e.g., email, Twitter, IRC, public GitHub pages, etc.). The channel does not need to be secure, as the sharelock itself is already encrypted.</p>
+        <p>3. Your recipient clicks on the sharelock URL and is required to authenticate using Auth0. Sharelock.io validates that the sharelock data has not been modified, decrypts it, and checks to see if the authenticated recipient is on the list of people you intended to share your secret with. If everything checks out, the recipient receives the secret!.</p>
         ]]>
     </string>
     <string name="action_about">About</string>
@@ -46,8 +46,8 @@
     <string name="settings_url_reset_button">Reset</string>
     <string name="settings_sherlock_url_hint">Sharelock URL</string>
     <string name="settings_subtitle">settings</string>
-    <string name="settings_url_endpoint_tooltip">By default it uses https://sharelock.io but you can change it to your own instance of sharelock</string>
-    <string name="share_input_message">Type who you want to give access to:\nEmail addresses, Twitter handles, email domain names (e.g. @example.com)</string>
+    <string name="settings_url_endpoint_tooltip">We’ll default to using https://sharelock.io to generate your sharelock but you can use your own if you’d like - just type it in above.</string>
+    <string name="share_input_message">Enter the email addresses, Twitter handles or email domain names of the people you want to allow access.</string>
     <string name="crafted_by_url">http://auth0.com</string>
     <string name="action_tos">Terms of Service</string>
     <string name="action_security">Security</string>

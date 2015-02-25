@@ -40,7 +40,7 @@ public class ComposeActivity extends BaseMenuActivity {
 
     private static final String TAG = ComposeActivity.class.getName();
     private static final String COMPOSE_CREATED_SECRET = "compose-created-secret";
-    private static final int DELAY_MILLIS = 2000;
+    private static final int DELAY_MILLIS = 1000;
 
     EventBus bus;
     Secret secret;
