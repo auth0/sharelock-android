@@ -61,21 +61,11 @@
             />
         <EditText
             android:id="@+id/settings_endpoint_url"
-            android:layout_width="@dimen/settings_endpoint_edit_text_width"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:inputType="textUri"
             android:layout_centerInParent="true"
             android:layout_alignParentLeft="true"
-            />
-        <Button
-            android:id="@+id/settings_default_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/settings_endpoint_url"
-            android:layout_alignParentRight="true"
-            android:layout_centerInParent="true"
-            android:text="@string/settings_url_reset_button"
-            android:layout_marginLeft="10dp"
             />
         <TextView
             android:id="@+id/secret_tooltip"
@@ -86,6 +76,15 @@
             android:text="@string/settings_url_endpoint_tooltip"
             android:layout_marginTop="@dimen/secret_input_tooltip_top_margin"
             android:paddingBottom="10dp"
+            />
+        <Button
+            android:id="@+id/settings_default_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/secret_tooltip"
+            android:layout_alignParentRight="true"
+            android:text="@string/settings_url_reset_button"
+            android:layout_marginLeft="10dp"
             />
     </RelativeLayout>
 </RelativeLayout>
