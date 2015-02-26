@@ -24,6 +24,7 @@ public class LinkAPIClient {
 
     public LinkAPIClient(String baseUrl) {
         this.client = new AsyncHttpClient();
+        this.client.addHeader("User-Agent", "Sharelock Android " + BuildConfig.VERSION_NAME);
         this.entityBuilder = new JsonEntityBuilder(new ObjectMapper());
         this.baseUri = Uri.parse(baseUrl);
     }

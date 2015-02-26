@@ -48,7 +48,7 @@
     <string name="settings_subtitle">settings</string>
     <string name="settings_url_endpoint_tooltip">We’ll default to using https://sharelock.io to generate your sharelock but you can use your own if you’d like - just type it in above.</string>
     <string name="share_input_message">Enter the email addresses, Twitter handles or email domain names of the people you want to allow access.</string>
-    <string name="crafted_by_url">http://auth0.com</string>
+    <string name="crafted_by_url">http://auth0.com?utm_source=slockandroidapp</string>
     <string name="action_tos">Terms of Service</string>
     <string name="action_security">Security</string>
 </resources>

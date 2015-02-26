@@ -153,6 +153,7 @@ public class LinkFragment extends Fragment {
     public void onEventMainThread(RequestLinkEvent event) {
         retryButton.setVisibility(View.GONE);
         progressBar.setVisibility(View.VISIBLE);
+        linkText.setText(R.string.link_in_progress);
         buttons.setVisibility(View.GONE);
     }
 }
